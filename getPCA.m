@@ -1,5 +1,5 @@
 clc;close all;clear;
-img=imread('50.jpg');
+img=imread('40.jpg');
 THR=180;
 gray=rgb2gray(img);
 mark=gray> THR;
@@ -15,7 +15,10 @@ imshow(img);
 hold on;
 plot(y,x,'ro')
 
+% polyfit
 ce=polyfit(y,x,1);
+ce0=fit(y,x,fittype('poly1'));
+
 lineX=1:720;
 lineY=ce(2)+ce(1)*lineX;
-plot(lineX,lineY,'b');
+plot(lineX,lineY,'b+');
